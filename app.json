@@ -25,6 +25,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "33d6b5a3-d97b-443c-9cb6-9c7acb40680f"
+      }
+    },
+    "owner": "felipemorales"
   }
 }
