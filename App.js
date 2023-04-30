@@ -1,19 +1,32 @@
 import React from "react";
 
 import { NavigationContainer } from "@react-navigation/native";
-import { createDrawerNavigator } from "@react-navigation/drawer";
+import { createStackNavigator } from "@react-navigation/stack";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
+
 import Contatos from './src/pages/Contatos';
 import Informacoes from './src/pages/Informacoes';
+import AppContatos from "./src/pages/AppContatos";
 
-const Drawer = createDrawerNavigator();
+const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
+
+function Tabs (){
+  return(
+    <Tab.Navigator>
+      <Tab.Screen name="AppContatos" component={AppContatos}/>
+      <Tab.Screen name="Contatos" component={Contatos}/>
+    </Tab.Navigator>
+  )
+}
 
 export default function App(){
   return(
     <NavigationContainer>
-      <Drawer.Navigator>
-        <Drawer.Screen name="Contatos" component={Contatos}/>
-        <Drawer.Screen name="Informações" component={Informacoes}/>
-      </Drawer.Navigator>
+      <Stack.Navigator>
+        <Stack.Screen name="AppContatos" component={Tabs}/>
+        <Stack.Screen name="Informações" component={Informacoes}/>
+      </Stack.Navigator>
     </NavigationContainer>
   )
 }
